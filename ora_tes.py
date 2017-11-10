@@ -16,7 +16,7 @@ from subprocess import Popen, PIPE
 import win32com.client as win32
 import datetime
 
-
+# Return the special search log deatil in esearh.csv and filter by search log no 
 def get_search_list(file, searchlog):
     searchloglist = []
     f = open(file)
@@ -26,7 +26,7 @@ def get_search_list(file, searchlog):
             searchloglist.append(lines[i])
     return searchloglist
 
-
+# Return a list of sql scripts
 def read_files(file):
     f = open(file)
     lines = f.read().splitlines()
@@ -35,14 +35,14 @@ def read_files(file):
         filelist.append(lines[i])
     return filelist
 
-
+# Execute the sql scripts via Popen
 def run_sql_script(connstr, file):
     sqlplus = Popen(['sqlplus', '-S', connstr],
                     stdin=PIPE, stdout=PIPE, stderr=PIPE)
     sqlplus.stdin.write('@' + file)
     return sqlplus.communicate()
 
-
+# To send Mail via local Outlock client
 def send_outlook_mail(receiver, subject, body=None, attachment=None):
     outlook = win32.Dispatch('outlook.application')
     mail = outlook.CreateItem(0)
@@ -54,7 +54,6 @@ def send_outlook_mail(receiver, subject, body=None, attachment=None):
     for a in attachment:
         mail.Attachments.Add(a)
     mail.Send()
-
 
 def main(connstr, searchloglist, searchlogno):
     searchloglist = get_search_list(searchloglist, searchlogno)
