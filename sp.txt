@@ -1,5 +1,5 @@
 
-SYSDATE                                                                         
----------                                                                       
-17-OCT-17                                                                       
+LOG_DATE                  HOST_NAME                      INSTANCE_NAME                                                                                                                                  
+------------------------- ------------------------------ ----------------                                                                                                                               
+2017/11/10 10:32:31       localhost.localdomain          ZVCP01RD                                                                                                                                       
 

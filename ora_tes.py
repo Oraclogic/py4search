@@ -51,7 +51,8 @@ def send_outlook_mail(receiver, subject, body=None, attachment=None):
     mail.Body = body
     # mail.HTMLBody = '<h2>lase check the attchement!</h2>'# this field is optional
     # In case you want to attach a file to the email
-    mail.Attachments.Add(attachment)
+    for a in attachment:
+        mail.Attachments.Add(a)
     mail.Send()
 
 
@@ -62,13 +63,14 @@ def main(connstr, searchloglist, searchlogno):
     suser = strs[1]
     sscripts = strs[2]
     sattachment = strs[3]
+    list_attachment = sattachment.split(';')
     for sline in read_files(sscripts):
-        print sline
         output, error = run_sql_script(connstr, sline)
-    send_outlook_mail(suser,slogno+'_'+datetime.datetime.now().strftime("%Y%m%d"),'',sattachment)
+    send_outlook_mail(suser, slogno + '_' +
+                      datetime.datetime.now().strftime("%Y%m%d"), '', list_attachment)
 
 
-basedir = 'C:\Users\IBM_ADMIN\PycharmProjects'
+# attachment_basedir = ''
 subdir = 'zfzhou'
 connstr = 'system/oracle@192.168.11.111:1521/ZVCP01RD'
 timefmt = "%Y-%m-%d %H:%M:%S"
@@ -80,7 +82,7 @@ timefmt = "%Y-%m-%d %H:%M:%S"
 # for line in file:
 #     output, error = run_sql_script(connstr, line)
 
-main(connstr, 'c:\Users\IBM_ADMIN\PycharmProjects\zfzhou\esearch.csv', 'S2000')
+main(connstr, 'esearch.csv', 'S2000')
 
 # searchloglist=get_search_list('c:\Users\IBM_ADMIN\PycharmProjects\zfzhou\esearch.csv','S2000')
 # for i in range(len(searchloglist)):

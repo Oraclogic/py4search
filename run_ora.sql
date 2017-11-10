@@ -1,4 +1,4 @@
-spool C:\Users\IBM_ADMIN\PycharmProjects\sp.txt
+spool sp.txt
 set linesize 200
 col log_date for a25
 col instance_name  for a16
