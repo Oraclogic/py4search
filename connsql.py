@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import pyodbc
 import xlsxwriter
-sheet1 = ['一','二','三']
+sheet1 = ['一', '二', '三']
 # sheet1 = ["Oracle","Java","Python"]
 workbook = xlsxwriter.Workbook('YourResults.xlsx')
 worksheet = []
 
-for i in range(0,len(sheet1)):
+for i in range(0, len(sheet1)):
     print sheet1[i]
     worksheet = workbook.add_worksheet(unicode(sheet1[i], 'utf-8'))
 
@@ -23,9 +23,9 @@ for i in range(0,len(sheet1)):
 #     login_time,
 #     host_name,
 #     login_name,
-#     last_request_start_time 
+#     last_request_start_time
 #     from sys.dm_exec_sessions""")
-#     for data in cursor:    
+#     for data in cursor:
 #         for i in range(0,4):
 #             if i in (1,4):
 #                 worksheet.write(row, i, data[i],format)
@@ -36,5 +36,5 @@ for i in range(0,len(sheet1)):
 
 
 workbook.close()
-    # cursor.close()
-    # cnxn.close()
+# cursor.close()
+# cnxn.close()
