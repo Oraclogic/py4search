@@ -83,3 +83,17 @@ print(type(filteredlist))
 #     lines = f.read().splitlines()
 
 
+print (u'\u8def\u5f84\u4e0d\u5b58\u5728\u3002\u8bf7\u9a8c\u8bc1\u6b64\u8def\u5f84\u662f\u5426\u6b63\u786e\u3002').encode('utf8')
+# print u"Exception(u'\xb1\xbb\xba\xf4\xbd\xd0\xb7\xbd\xbe\xdc\xbe\xf8\xbd\xd3\xca\xd5\xba\xf4\xbd\xd0\xa1\xa3',)"
+# bytes = '\xb1\xbb\xba\xf4\xbd\xd0\xb7\xbd\xbe\xdc\xbe\xf8\xbd\xd3\xca\xd5\xba\xf4\xbd\xd0\xa1\xa3'
+bytes = '\u8def\u5f84\u4e0d\u5b58\u5728\u3002\u8bf7\u9a8c\u8bc1\u6b64\u8def\u5f84\u662f\u5426\u6b63\u786e\u3002'
+print bytes.decode('gbk')
+
+my_list = ['p','r','o','b','e']
+print len(my_list)
+
+s1 = '10:33:26'
+s2 = '11:15:49' # for example
+FMT = '%H:%M:%S'
+tdelta = datetime.strptime(now,"%Y%m%d") - datetime.strptime(now,"%Y%m%d")
+print tdelta

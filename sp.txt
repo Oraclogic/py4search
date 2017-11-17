@@ -1,5 +1,43 @@
 
-LOG_DATE                  HOST_NAME                      INSTANCE_NAME                                                                                                                                  
-------------------------- ------------------------------ ----------------                                                                                                                               
-2017/11/10 10:32:31       localhost.localdomain          ZVCP01RD                                                                                                                                       
+LOG_DATE                  HOST_NAME                      INSTANCE_NAME    USERNAME||CHR(10)                                                                                                             
+------------------------- ------------------------------ ---------------- -------------------------------                                                                                               
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SYS                                                                                                                           
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SYSTEM                                                                                                                        
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SCOTT                                                                                                                         
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         ZF                                                                                                                            
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         OUTLN                                                                                                                         
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         MGMT_VIEW                                                                                                                     
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         FLOWS_FILES                                                                                                                   
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         MDSYS                                                                                                                         
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         ORDSYS                                                                                                                        
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         EXFSYS                                                                                                                        
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         DBSNMP                                                                                                                        
+
+LOG_DATE                  HOST_NAME                      INSTANCE_NAME    USERNAME||CHR(10)                                                                                                             
+------------------------- ------------------------------ ---------------- -------------------------------                                                                                               
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         WMSYS                                                                                                                         
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         APPQOSSYS                                                                                                                     
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         APEX_030200                                                                                                                   
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         OWBSYS_AUDIT                                                                                                                  
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         ORDDATA                                                                                                                       
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         CTXSYS                                                                                                                        
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         ANONYMOUS                                                                                                                     
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SYSMAN                                                                                                                        
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         XDB                                                                                                                           
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         ORDPLUGINS                                                                                                                    
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         OWBSYS                                                                                                                        
+
+LOG_DATE                  HOST_NAME                      INSTANCE_NAME    USERNAME||CHR(10)                                                                                                             
+------------------------- ------------------------------ ---------------- -------------------------------                                                                                               
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SI_INFORMTN_SCHEMA                                                                                                            
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         OLAPSYS                                                                                                                       
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         ORACLE_OCM                                                                                                                    
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         XS$NULL                                                                                                                       
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         MDDATA                                                                                                                        
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         DIP                                                                                                                           
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         APEX_PUBLIC_USER                                                                                                              
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SPATIAL_CSW_ADMIN_USR                                                                                                         
+2017/11/16 16:50:30       localhost.localdomain          ZVCP01RD         SPATIAL_WFS_ADMIN_USR                                                                                                         
+
+31 rows selected.
 

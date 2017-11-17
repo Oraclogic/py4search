@@ -1,22 +1,12 @@
-# import cx_Oracle
-
-# connection = cx_Oracle.connect("system", "oracle", "192.168.11.111:1521/ZVCP01RD")
-
-# cursor = connection.cursor()
-# cursor.execute("""
-# SELECT ename,sal,to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') datetime
-# FROM scott.emp
-# WHERE deptno = :did AND empno > :eid""",
-# did = 10,
-# eid = 190)
-# for row in cursor:
-#     print (row)
-
+from datetime import datetime
 from subprocess import Popen, PIPE
 import win32com.client as win32
-import datetime
+# import datetime
+import sys
 
-# Return the special search log deatil in esearh.csv and filter by search log no 
+# Return the special search log deatil in esearh.csv and filter by search log no
+
+
 def get_search_list(file, searchlog):
     searchloglist = []
     f = open(file)
@@ -27,6 +17,8 @@ def get_search_list(file, searchlog):
     return searchloglist
 
 # Return a list of sql scripts
+
+
 def read_files(file):
     f = open(file)
     lines = f.read().splitlines()
@@ -36,6 +28,8 @@ def read_files(file):
     return filelist
 
 # Execute the sql scripts via Popen
+
+
 def run_sql_script(connstr, file):
     sqlplus = Popen(['sqlplus', '-S', connstr],
                     stdin=PIPE, stdout=PIPE, stderr=PIPE)
@@ -43,6 +37,8 @@ def run_sql_script(connstr, file):
     return sqlplus.communicate()
 
 # To send Mail via local Outlock client
+
+
 def send_outlook_mail(receiver, subject, body=None, attachment=None):
     outlook = win32.Dispatch('outlook.application')
     mail = outlook.CreateItem(0)
@@ -51,9 +47,14 @@ def send_outlook_mail(receiver, subject, body=None, attachment=None):
     mail.Body = body
     # mail.HTMLBody = '<h2>lase check the attchement!</h2>'# this field is optional
     # In case you want to attach a file to the email
-    for a in attachment:
-        mail.Attachments.Add(a)
-    mail.Send()
+    if len(attachment) == 0:
+        print ("No attachment.")
+    else:
+        for a in attachment:
+            mail.Attachments.Add(a)
+            print ("Add attachment:" + a)
+        mail.Send()
+
 
 def main(connstr, searchloglist, searchlogno):
     searchloglist = get_search_list(searchloglist, searchlogno)
@@ -62,26 +63,32 @@ def main(connstr, searchloglist, searchlogno):
     suser = strs[1]
     sscripts = strs[2]
     sattachment = strs[3]
-    list_attachment = sattachment.split(';')
+    if len(sattachment) == 0:
+        list_attachment = []
+    else:
+        list_attachment = sattachment.split(';')
     for sline in read_files(sscripts):
+        tbegin = datetime.now().strftime(timefmt)
+        print (tbegin + "\tStarting execute script:" + sline)
         output, error = run_sql_script(connstr, sline)
+        tend = datetime.now().strftime(timefmt)
+        tdelta = datetime.strptime(tend, timefmt) - \
+            datetime.strptime(tbegin, timefmt)
+        print (tend + "\tComplete execute script:" + sline + "\telapsed: " +str(tdelta))
+        print error
     send_outlook_mail(suser, slogno + '_' +
-                      datetime.datetime.now().strftime("%Y%m%d"), '', list_attachment)
+                      datetime.now().strftime("%Y%m%d"), '', list_attachment)
 
 
-# attachment_basedir = ''
-subdir = 'zfzhou'
-connstr = 'system/oracle@192.168.11.111:1521/ZVCP01RD'
 timefmt = "%Y-%m-%d %H:%M:%S"
+timestampstr = datetime.now().strftime(timefmt)
 
-# output, error = run_sql_script(connstr,"c:\Users\IBM_ADMIN\PycharmProjects\zfzhou\\run_ora.sql")
 
-# filename = basedir + '/' + subdir + '/run_scripts_list.txt'
-# file = open(filename, "r")
-# for line in file:
-#     output, error = run_sql_script(connstr, line)
-
-main(connstr, 'esearch.csv', 'S2000')
+# main(database_connect_str, search_log_standard_list, searchno)
+connstr = sys.argv[1]
+filename = sys.argv[2]
+searchno = sys.argv[3]
+main(connstr, filename, searchno)
 
 # searchloglist=get_search_list('c:\Users\IBM_ADMIN\PycharmProjects\zfzhou\esearch.csv','S2000')
 # for i in range(len(searchloglist)):
