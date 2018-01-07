@@ -71,11 +71,11 @@ def get_search_list(file, searchlog):
     lines = f.read().splitlines()
     for i in range(0, len(lines)):
         if lines[i].find(searchlog) != -1:
-            searchloglist.append(lines[i]) 
+            searchloglist.append(lines[i])
     return searchloglist
 
 
-filename = 'c:\Users\IBM_ADMIN\PycharmProjects\zfzhou\esearch.csv'
+filename = '/Users/zhoufeng/Documents/OneDrive/GitHub-Oraclogic/py4search/esearch.csv'
 filteredlist=get_search_list(filename, searchlog)
 print(filteredlist)
 print(type(filteredlist))
