@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
-now = datetime.datetime.now().strftime("%Y%m%d")
-print ('111'+now)
+import sys
+import time
 
-from datetime import datetime
-time_utc = datetime.utcnow()
+now = datetime.datetime.now().strftime("%Y%m%d")
+print ('111' + now)
+
+time_utc = datetime.datetime.utcnow()
 print(time_utc)
 
 x = 3
@@ -59,7 +61,7 @@ attachment = "c:\Users\IBM_ADMIN\PycharmProjects\zfzhou\run_ora.sql"
 print len(attachment)
 
 
-l = []
+ll = []
 
 
 searchlog = 'krinight'
@@ -76,7 +78,7 @@ def get_search_list(file, searchlog):
 
 
 filename = '/Users/zhoufeng/Documents/OneDrive/GitHub-Oraclogic/py4search/esearch.csv'
-filteredlist=get_search_list(filename, searchlog)
+filteredlist = get_search_list(filename, searchlog)
 print(filteredlist)
 print(type(filteredlist))
 # with open(filename) as f:
@@ -89,11 +91,41 @@ print (u'\u8def\u5f84\u4e0d\u5b58\u5728\u3002\u8bf7\u9a8c\u8bc1\u6b64\u8def\u5f8
 bytes = '\u8def\u5f84\u4e0d\u5b58\u5728\u3002\u8bf7\u9a8c\u8bc1\u6b64\u8def\u5f84\u662f\u5426\u6b63\u786e\u3002'
 print bytes.decode('gbk')
 
-my_list = ['p','r','o','b','e']
+my_list = ['p', 'r', 'o', 'b', 'e']
 print len(my_list)
 
 s1 = '10:33:26'
-s2 = '11:15:49' # for example
+s2 = '11:15:49'  # for example
 FMT = '%H:%M:%S'
-tdelta = datetime.strptime(now,"%Y%m%d") - datetime.strptime(now,"%Y%m%d")
-print tdelta
+tdelta = datetime.datetime.strptime(now, "%Y%m%d") - datetime.datetime.strptime(now, "%Y%m%d")
+
+for my_single_list in my_list:
+    print(my_single_list)
+
+
+for my_single_list in my_list:
+    print(my_single_list),
+
+for num in (range(5)):
+    print(num)
+
+
+print(sys.platform)
+print(2 ** 100)
+x = 'Spam!'
+print(x * 8)
+
+print(sys.version)
+
+
+for i in (range(5)):
+    print (datetime.datetime.now().strftime("%Y%m%d %H%M%S") + "\tHello World!")
+    time.sleep(1)
+
+
+for i in (range(5)):
+    print (datetime.datetime.now().strftime("%Y%m%d %H%M%S") + "\tHello World!")
+    time.sleep(1)
+
+for x in xrange(1, 10):
+    print x
